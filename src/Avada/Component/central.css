@@ -1,0 +1,43 @@
+.centralbox{
+    display: flex;
+    /* flex:1; */
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+.centraldiv1{
+    /* flex:0.3; */
+    /* justify-content: center;
+    flex-direction: row;
+    align-items: center; */
+    margin-top: 70px;
+}
+.changebtn{
+    color:white;
+    background-color:#282828;
+    /* justify-content: center; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.homepic{
+    flex:0.3; 
+    flex-grow:0;
+    width:720px;
+    height:720px;
+}
+.homedes{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+
+}
+.boxsection{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}

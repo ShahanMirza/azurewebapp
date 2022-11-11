@@ -1,0 +1,14 @@
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    background-color: none;
+    color:black;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+.what{
+    border-style: solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
