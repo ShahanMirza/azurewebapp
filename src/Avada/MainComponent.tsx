@@ -1,22 +1,30 @@
-import React from "react";
-import Navbar from "./Navbar/Navbar";
-import CentralDiv from "./Component/CentralDiv";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import Grid from "@mui/system/Unstable_Grid";
 import CardComp from "./Cards/CardComp";
 import beginner from "./Cards/for.webp";
-import { Stack, TextField, Typography, Button, Box } from "@mui/material";
-import Grid from "@mui/system/Unstable_Grid";
-import TabDiv from "./TabDiv/TabDiv";
-import VerticalTab from "./VerticalTab/VerticalTab";
-import Avadalogo from "./TabDiv/Avada.png";
-import MainCompImage from "./MainComp-removebg-preview.png";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import shapeBg from "./shape-bg-9.svg";
-import worldClass from "./world-class-support.webp";
-import Testimonial from "./Testimonials/Testimonial";
+import CentralDiv from "./Component/CentralDiv";
 import Faq from "./Faq/Faq";
 import Footer from "./Footer/Footer";
+import MainCompImage from "./MainComp-removebg-preview.png";
+import Navbar from "./Navbar/Navbar";
+import shapeBg from "./shape-bg-9.svg";
+import Avadalogo from "./TabDiv/Avada.png";
+import TabDiv from "./TabDiv/TabDiv";
+import Testimonial from "./Testimonials/Testimonial";
+import VerticalTab from "./VerticalTab/VerticalTab";
+import worldClass from "./world-class-support.webp";
 
 function MainComponent() {
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
+
   const obj = [
     {
       head: "FOR BEGINNERS",
@@ -143,24 +151,25 @@ function MainComponent() {
   const faqobj = [
     {
       summary: "World-Class Support",
-      details:"We build long-term professional relationships with our customers that you can rely on & trust.",
+      details:
+        "We build long-term professional relationships with our customers that you can rely on & trust.",
     },
     {
       summary: "Documentation & Tutorials",
-      details:"Over 550 help files & 200 tutorial videos will make building websites with Avada even easier.",
+      details:
+        "Over 550 help files & 200 tutorial videos will make building websites with Avada even easier.",
     },
     {
       summary: "100% Built In-House",
-      details:"Avada is not reliant on 3rd party tools to deliver a reliable & stable website building experience.",
+      details:
+        "Avada is not reliant on 3rd party tools to deliver a reliable & stable website building experience.",
     },
     {
       summary: "Free Lifetime Updates",
-      details:"Your website will receive free & regular updates, compatible with industry standards & trends, for life.",
+      details:
+        "Your website will receive free & regular updates, compatible with industry standards & trends, for life.",
     },
   ];
-
-
-
 
   return (
     <Box>
@@ -169,10 +178,13 @@ function MainComponent() {
       <Box sx={{ m: "0 20px  0 20px" }}>
         <CentralDiv />
         <Box sx={{ textAlign: "center", mt: 15 }}>
-          <Grid container spacing={3}>
+          <Grid
+            container
+            spacing={3}
+            justifyContent={matchesSM ? "center" : "flex-start"}
+          >
             {obj.map((value, index) => (
-              <Grid xs={4}>
-                {" "}
+              <Grid md={4}>
                 <CardComp {...value} />
               </Grid>
             ))}
@@ -185,7 +197,7 @@ function MainComponent() {
       <Box sx={{ textAlign: "center", mt: 10 }}>
         <Grid container spacing={3}>
           {obj1.map((value, index) => (
-            <Grid xs={4}>
+            <Grid md={4}>
               <CardComp {...value} />
             </Grid>
           ))}
@@ -275,10 +287,10 @@ function MainComponent() {
       >
         Frequently Asked Questions
       </Typography>
-      
-      {faqobj.map(obj=>(
-<Faq {...obj} />
-))};
+      {faqobj.map((obj) => (
+        <Faq {...obj} />
+      ))}
+      ;
       <Footer />
       {/* </div> */}
     </Box>
