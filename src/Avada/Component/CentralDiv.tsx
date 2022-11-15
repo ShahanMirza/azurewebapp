@@ -9,12 +9,14 @@ import { Grid } from '@mui/material';
 
 import "./central.css";
 function CentralDiv() {
- 
+  const matches = useMediaQuery("(max-width:768px)");
+  const matchesXS = useMediaQuery("(max-width:450px)");
+  const matchesMD = useMediaQuery("(max-width:1024px)");
   return (
     <Box>
       <Box className='centralbox'>
       <Grid container spacing={0}>
-        <Grid item xs={5} sm={6} md={6}>
+        <Grid item xs={3} sm={4} md={6}>
         <Box className="homedes" component="div" sx={{ display: { xs: 'block', md: 'none', lg: 'block' } }}>
           <Typography variant="h1">
             The Ultimate Portfolio Website Builder

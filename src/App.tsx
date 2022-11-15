@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Notfound } from './Notfound';
 import MainComponent from './Avada/MainComponent'
 import { CssBaseline } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from './Theme'
 // import { TodoList } from './Todolist';
 // import { AddTodoForm } from './AddTodoForm';
 // const initialTodos:Todo[]=[
@@ -46,15 +48,14 @@ function App() {
 // // setTodos(index.);
 // }
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       
       <MainComponent />
       <CssBaseline/>
      {/* <Notfound/> */}
     {/* <TodoList todos={todos} toggleTodo={toggleTodo} removeTodo={removeTodo} updateTodo={updateTodo}/>
       <AddTodoForm addTodo={addTodo} updateTodo={updateTodo}/> */}
-
-    </div>
+</ThemeProvider>
   );
 }
 
