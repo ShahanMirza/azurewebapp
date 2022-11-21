@@ -20,11 +20,15 @@ import TabDiv from "./TabDiv/TabDiv";
 import Testimonial from "./Testimonials/Testimonial";
 import VerticalTab from "./VerticalTab/VerticalTab";
 import worldClass from "./world-class-support.webp";
-
+import DoneIcon from '@mui/icons-material/Done';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {toast} from "./Toast";
+import { useEffect, useState } from "react";
+import ModalTest from "./Navbar/ModalTest";
 function MainComponent() {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
-
+  const [modalBool,setModalBool]=useState<any>(false)
   const obj = [
     {
       head: "FOR BEGINNERS",
@@ -147,22 +151,51 @@ function MainComponent() {
       imagePosition: true,
     },
   ];
+  let AccordItem1 =  () =>( <ol style={{listStyleType: "none"}}> With your purchase of Avada, you will receive:
+  <li><DoneIcon sx={{color:"green",fontSize:"medium"}}/> 6 months of free professional support. </li>
+  <li> <DoneIcon sx={{color:"green",fontSize:"medium"}}/>8 bundled premium plugins. Your Content Goes
+  Here 120+ Design and Layout Elements.</li>
+  <li> <DoneIcon sx={{color:"green",fontSize:"medium"}}/> 550+ detailed help files,
+  continually updated to ensure everything is current. </li>
+  <li> <DoneIcon sx={{color:"green",fontSize:"medium"}}/>200+ video
+  tutorials, with new videos, added regularly. </li>
+  <li><DoneIcon sx={{color:"green",fontSize:"medium"}}/> Free, consistent, and
+  stable updates to ensure compatibility with industry standards &
+  trends. </li>
+  <li> <DoneIcon sx={{color:"green",fontSize:"medium"}}/>Avada works with popular 3rd party plugins like Yoast SEO,
+  WooCommerce, The Events Calendar, HubSpot, WPML, and more.
+  </li>
+  </ol>);
+
+
+let AccordItem2 = () =>( <ol style={{listStyleType:"none"}}> Hands-on support with our professional team of support experts is
+          accessible 24/7, and that includes an extensive library of detailed
+          documentation and video tutorials. 
+         <li> <ArrowForwardIosIcon sx={{color:"green",fontSize:"small"}}/>To access support you will need to
+          register a support account by following these steps.</li>
+          <li><ArrowForwardIosIcon  sx={{color:"green",fontSize:"small"}} />Once your support
+          account is set up, you can submit support tickets here.</li>
+           <li><ArrowForwardIosIcon  sx={{color:"green",fontSize:"small"}}/>Learn how to
+          navigate your support account Dashboard here.</li>
+           <li><ArrowForwardIosIcon  sx={{color:"green",fontSize:"small"}}/>Check to see if you are
+          eligible for Grandfathered support. </li>
+          <li><ArrowForwardIosIcon  sx={{color:"green",fontSize:"small"}}/>For a detailed overview of our
+          support policy please go here.</li>
+          </ol>);
 
   const faqobj = [
     {
       summary: "World-Class Support",
-      details:
-        "We build long-term professional relationships with our customers that you can rely on & trust.",
+      details:<AccordItem1/>,
     },
     {
       summary: "Documentation & Tutorials",
-      details:
-        "Over 550 help files & 200 tutorial videos will make building websites with Avada even easier.",
+      details:"  No, there are no recurring license fees to use Avada. It is a one-time purchase that provides you with lifetime updates at no extra cost and is valid for life. You can choose to purchase a support extension after the initial 6 months of support has expired. However, this is entirely optional.",
     },
     {
       summary: "100% Built In-House",
       details:
-        "Avada is not reliant on 3rd party tools to deliver a reliable & stable website building experience.",
+        <AccordItem2/>,
     },
     {
       summary: "Free Lifetime Updates",
@@ -170,9 +203,13 @@ function MainComponent() {
         "Your website will receive free & regular updates, compatible with industry standards & trends, for life.",
     },
   ];
-
+  
+useEffect(()=>{
+  toast ('data has been loaded','success') 
+},[])
   return (
     <Box>
+     
       {/* <div> */}
       <Navbar />
       <Box sx={{ m: "0 20px  0 20px" }}>
@@ -292,6 +329,8 @@ function MainComponent() {
       ))}
       ;
       <Footer />
+      <ModalTest open={modalBool} setOpen={(value:boolean)=>setModalBool(value)}/>
+     
       {/* </div> */}
     </Box>
   );

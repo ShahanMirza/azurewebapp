@@ -1,16 +1,20 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography,Grid } from "@mui/material";
 import squarebird from "./squarebird-logo.webp";
 import testimonialImg from "./testimonial.webp";
 function Testimonial() {
   return (
     <Box sx={{ display: "flex", flexDirection: "row", mt: 10 }}>
-      <Box sx={{ flex: "1 0 auto", width: "50%" }}>
-        <img src={testimonialImg} style={{ width: "720px", height: "720px" }} />
+      <Grid container >
+      <Grid item md={6}>
+      <Box sx={{ flex: "1 0 auto", }}>
+        <img src={testimonialImg} style={{ width: "100%", height: "720px" }} />
       </Box>
+      </Grid>
+      <Grid item md={6}>
       <Box
         sx={{
           flex: "1 0 auto",
-          width: "50%",
+          // width: "50%",
           height: "720px",
           backgroundColor: "#fee979",
           flexFlow: "column",
@@ -46,6 +50,8 @@ function Testimonial() {
         </Box>
         <Typography>https://www.squarebird.co.uk</Typography>
       </Box>
+      </Grid>
+      </Grid>
     </Box>
   );
 }

@@ -13,14 +13,14 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 interface FaqProps{
 summary:string;
-details:string;
+details:string|any;
 }
 
 function Faq({summary,details}:FaqProps) {
   const [expandedPanel, setExpandedPanel] = useState<string|null>(null);
   const handleAccordionChange =
     (panel: string) => (event: any, isExpanded: boolean) => {
-      console.log({ event, isExpanded });
+      // console.log({ event, isExpanded });
       setExpandedPanel(isExpanded ? panel : null);
     };
 

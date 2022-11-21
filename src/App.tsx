@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Notfound } from "./Notfound";
 import MainComponent from "./Avada/MainComponent";
 import { CssBaseline } from "@material-ui/core";
+import { Flip, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // import { TodoList } from './Todolist';
 // import { AddTodoForm } from './AddTodoForm';
 // const initialTodos:Todo[]=[
@@ -45,6 +48,11 @@ function App() {
   // }
   return (
     <div className="App">
+      <ToastContainer
+              draggable
+              draggableDirection="x"
+              transition={Flip}
+            />
       <CssBaseline />
       <MainComponent />
       {/* <Notfound/> */}

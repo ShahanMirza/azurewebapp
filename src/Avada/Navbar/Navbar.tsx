@@ -1,11 +1,14 @@
 import { Toolbar, Typography } from "@material-ui/core";
-import { AppBar, useMediaQuery, useTheme } from "@mui/material";
+import { AppBar, Box, Button, useMediaQuery, useTheme } from "@mui/material";
 import Avada from "../avada-logo-svg.svg";
 import "./navbar.css";
+import { Modal } from '@mui/material';
+import { useState } from "react";
+import ModalTest from "./ModalTest";
 function Navbar() {
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down("lg"));
-
+  
   return (
     <div>
       <AppBar
@@ -22,9 +25,10 @@ function Navbar() {
               <Typography>Features</Typography>
               <Typography>Elements</Typography>
               <Typography>PreBuilt Websites</Typography>
-              <Typography className="what">
+              <Typography className="what" >
                 <p>What's New</p>
               </Typography>
+             
             </>
           )}
         </Toolbar>
